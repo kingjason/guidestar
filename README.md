@@ -63,7 +63,7 @@ Additional options (and their respective defaults):
 
 ### Organization Categories & Sub-Categories
 
-Categories (defaults to "C1_Arts_Culture_and_Humanities"):
+#### Categories (defaults to "C1_Arts_Culture_and_Humanities"):
 
 * "C1_Arts_Culture_and_Humanities"
 * "C2_Education_and_Research"
@@ -75,7 +75,7 @@ Categories (defaults to "C1_Arts_Culture_and_Humanities"):
 * "C8_Religion"
 * "C9_Unknown"
 
-Sub-Categories (defaults to "C4_Performing_Arts"):
+#### Sub-Categories (defaults to "C4_Performing_Arts"):
 
 * "C1_Humanities_and_Historical_Societies"
 * "C1_Media"
