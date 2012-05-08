@@ -78,6 +78,7 @@ module Guidestar
             organization[:asset_amount] = info.at('assets').text ? info.at('assets').text.to_i : nil
             organization[:annual_revenue] = info.at('income').text ? info.at('income').text.to_i : nil
             organization[:alternate_name] = info.at('aka').text
+            organization[:description] = info.at('description').text
 
             info.xpath('.//address').each do |address|
               organization[:address] = address.at('addressLine1').text
@@ -100,6 +101,11 @@ module Guidestar
             info.xpath('.//ntees/ntee').each do |ntee|
               next if ntee.at('code').text == ""
               organization[:ntees] << { :code => ntee.at('code').text, :description => ntee.at('description').text }
+            end
+
+            org.xpath('.//missionAndPrograms').each do |mission_and_programs|
+              organization[:mission] = mission_and_programs.at('mission').text
+              organization[:programs] = mission_and_programs.at('programs').text
             end
 
           end
