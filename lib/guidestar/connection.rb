@@ -35,6 +35,7 @@ module Guidestar
     end
 
     def construct_document(data)
+      # Consult https://gsservices.guidestar.org/GuideStar_SearchService/WebServiceSearchQuery.xsd
       builder = Nokogiri::XML::Builder.new do |xml|
         xml.query {
           xml.version data[:version]
@@ -42,12 +43,12 @@ module Guidestar
           xml.password @password
           xml.pageSize data[:pageSize]
           xml.offset data[:offset]
-          xml.orgName data[:orgName]    if data[:orgName]
-          xml.ein data[:ein]            if data[:ein]
+          xml.keyword data[:keyword]    if data[:keyword]
           xml.city data[:city]          if data[:city]
           xml.state data[:state]        if data[:state]
           xml.zip data[:zip]            if data[:zip]
-          xml.nteeCode data[:nteeCode]  if data[:nteeCode]
+          xml.ein data[:ein]            if data[:ein]
+          xml.orgName data[:orgName]    if data[:orgName]
           if data[:categories] && data[:categories].is_a?(Array)
             data[:categories].each {|category| xml.category category }
           end
@@ -55,6 +56,8 @@ module Guidestar
           if data[:sub_categories] && data[:sub_categories].is_a?(Array)
             data[:sub_categories].each {|sub_category| xml.subCategory sub_category }
           end
+
+          xml.nteeCode data[:nteeCode]  if data[:nteeCode]
         }
       end
 
