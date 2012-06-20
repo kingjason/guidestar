@@ -82,6 +82,7 @@ module Guidestar
             organization[:annual_revenue] = info.at('income').text ? info.at('income').text.to_i : nil
             organization[:alternate_name] = info.at('aka').text
             organization[:description] = info.at('description').text
+            organization[:tax_date] = info.at('taxDate').text
 
             info.xpath('.//address').each do |address|
               organization[:address] = address.at('addressLine1').text
