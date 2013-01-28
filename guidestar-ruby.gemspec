@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors = ["Mauricio Gomes"]
   s.email = "mgomes@geminisbs.com"
 
-  s.add_dependency "nokogiri", "~> 1.4.3.1"
-  s.add_dependency "rest-client", "~> 1.6.0"
+  s.add_dependency "nokogiri", "~> 1.5"
+  s.add_dependency "rest-client", "~> 1.6"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
